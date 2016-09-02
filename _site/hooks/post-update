@@ -1,0 +1,19 @@
+#!/bin/sh
+#
+# An example hook script to prepare a packed repository for use over
+# dumb transports.
+#
+# To enable this hook, rename this file to "post-update".
+
+exec git update-server-info
+#!/bin/bash -l
+GIT_REPO=home/as/repos/awesomeblog.git
+TMP_GIT_CLONE=home/as/tmp/git/awesomeblog
+PUBLIC_WWW=/var/www/awesomeblog
+
+echo "" > /home/as/awesomeblog/POST-RECEIVE_VEIKIA
+git clone $GIT_REPO $TMP_GIT_CLONE
+jekyll build --source $TMP_GIT_CLONE --destination $PUBLIC_WWW
+#rm -Rf $TMP_GIT_CLONE
+exit
+
