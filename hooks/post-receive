@@ -4,7 +4,7 @@ GIT_REPO=/home/as/repos/awesomeblog.git
 TMP_GIT_CLONE=/home/as/tmp
 PUBLIC_WWW=/var/www/awesomeblog
 
-echo "" > /home/as/awesomeblog/POST-RECEIVE_VEIKIA
+echo "" > /home/as/repos/awesomeblog.git/POST-RECEIVE_VEIKIA
 git clone $GIT_REPO $TMP_GIT_CLONE
 
 #jekyll build --source $TMP_GIT_CLONE --destination $PUBLIC_WWW
